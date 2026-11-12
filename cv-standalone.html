@@ -43,6 +43,13 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -181,9 +188,9 @@ h1 {
 }
 
 .jump {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 1.25rem;
+  display: grid;
+  grid-template-columns: max-content;
+  gap: 0.75rem;
   margin-top: 2.5rem;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(0, 0, 0, 0.14);
@@ -191,29 +198,26 @@ h1 {
 }
 
 .jump a {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   min-height: 44px;
-  color: var(--ink-soft);
+  padding: 0.5rem 1.125rem;
+  background: var(--accent);
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  color: var(--ink);
   text-decoration: none;
+  transition: border-color 140ms ease, color 140ms ease;
 }
 
 .jump a:hover {
-  color: var(--ink);
-  text-decoration-line: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 var(--ink);
 }
 
-@media (min-width: 880px) and (pointer: fine) {
-  .jump {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .jump a {
-    min-height: 38px;
-  }
+.jump a:active {
+  transform: translate(5px, 5px);
+  box-shadow: none;
 }
 
 main {
@@ -232,6 +236,7 @@ h2 {
   margin: 0 0 1.75rem;
   padding-bottom: 0.625rem;
   border-bottom: 3px solid var(--ink);
+  scroll-margin-top: 2rem;
   font-size: var(--text-sm);
   font-weight: 600;
   text-transform: uppercase;
