@@ -16,15 +16,15 @@
 :root {
   color-scheme: light;
 
-  --paper: #fbfaf7;
-  --ink: #1a1915;
-  --ink-soft: #4c4940;
-  --rule: #ded9ce;
-  --rule-strong: #b9b3a5;
-  --control-line: #8f8779;
-  --accent: #8c3a1b;
+  --paper: #ffffff;
+  --ink: #111111;
+  --ink-soft: #555555;
+  --rule: #dddddd;
+  --rule-strong: #8a8a8a;
+  --control-line: #333333;
+  --accent: #1a56db;
 
-  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, ui-serif, serif;
+  --serif: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, ui-sans-serif, sans-serif;
 
   /* Type scale: five sizes, 1.2 steps. */
@@ -47,7 +47,11 @@ html {
 
 body {
   margin: 0;
-  background: var(--paper);
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(#00000008 1px, transparent 1px),
+    linear-gradient(90deg, #00000008 1px, transparent 1px);
+  background-size: 24px 24px;
   color: var(--ink);
   font-family: var(--sans);
   font-size: var(--text-md);
@@ -380,7 +384,7 @@ h3 {
   appearance: none;
   background: transparent;
   border: 1px solid var(--control-line);
-  border-radius: 2px;
+  border-radius: 0;
   color: var(--ink);
   cursor: pointer;
   font: inherit;
