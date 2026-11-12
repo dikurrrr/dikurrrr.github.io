@@ -1,4 +1,6 @@
 :root {
+  color-scheme: light;
+
   --paper: #fbfaf7;
   --ink: #1a1915;
   --ink-soft: #4c4940;
@@ -57,7 +59,7 @@ a {
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
-  text-decoration-color: var(--rule-strong);
+  text-decoration-color: var(--control-line);
 }
 
 a:hover {
@@ -78,18 +80,19 @@ a:hover {
 
 .skip {
   position: absolute;
-  left: -9999px;
-  top: 0;
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
   background: var(--ink);
   color: var(--paper);
   padding: 0.75rem 1rem;
   text-decoration: none;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .skip:focus {
-  left: 1rem;
-  top: 1rem;
-  z-index: 10;
+  clip-path: none;
 }
 
 /* Layout: a document column beside a sticky rail, like a printed CV. */
@@ -97,7 +100,7 @@ a:hover {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: clamp(2.25rem, 5vw, 3rem);
-  max-width: 1060px;
+  max-width: 960px;
   margin: 0 auto;
   padding: clamp(2rem, 6vw, 4.5rem) clamp(1.25rem, 4vw, 2.5rem) clamp(2.5rem, 6vw, 5rem);
 }
@@ -140,7 +143,7 @@ h1 {
   color: var(--ink-soft);
   font-size: var(--text-md);
   line-height: 1.65;
-  max-width: 34ch;
+  max-width: 38ch;
 }
 
 .contact {
@@ -211,9 +214,10 @@ h2 {
   margin: 0 0 1.75rem;
   padding-bottom: 0.625rem;
   border-bottom: 1px solid var(--rule);
-  font-size: var(--text-lg);
+  font-size: var(--text-sm);
   font-weight: 600;
-  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .num {
@@ -394,6 +398,14 @@ h3 {
     --ink-soft: #1f1f1f;
     --rule: #b3b3b3;
     --rule-strong: #8a8a8a;
+
+    /* rem resolves against html, so print sizes are set here in pt.
+       --accent stays terracotta on purpose. */
+    --text-xs: 7.5pt;
+    --text-sm: 8.5pt;
+    --text-md: 9.5pt;
+    --text-lg: 11pt;
+    --text-display: 20pt;
   }
 
   @page {
@@ -401,7 +413,7 @@ h3 {
   }
 
   body {
-    font-size: 10pt;
+    font-size: var(--text-md);
     line-height: 1.45;
   }
 
@@ -422,6 +434,7 @@ h3 {
 
   .summary {
     max-width: none;
+    line-height: 1.5;
   }
 
   .jump,
@@ -451,6 +464,12 @@ h3 {
 
   h2 {
     margin-bottom: 0.75rem;
+    break-after: avoid;
+  }
+
+  p {
+    orphans: 2;
+    widows: 2;
   }
 
   a {
