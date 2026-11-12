@@ -1,6 +1,6 @@
 # CV – Dian Kurniawan
 
-CV terbaru saya tersedia di [lihat CV](https://dikurrrr.github.io/).
+My latest CV is available at [view CV](https://dikurrrr.github.io/).
 
-Untuk informasi lebih lanjut atau peluang kerja:
+For more information or job opportunities:
 [dikur.qa@email.com](mailto:dikur.qa@email.com) · [LinkedIn](https://www.linkedin.com/in/dikurr/)
