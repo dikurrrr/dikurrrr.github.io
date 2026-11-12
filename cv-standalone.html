@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dian Kurniawan | Quality Assurance Engineer</title>
+<meta name="description" content="Curriculum vitae of Dian Kurniawan, Quality Assurance Engineer in Yogyakarta. Manual, API, UI, regression and UAT testing, plus automation in Cypress, Jest and K6.">
+<style>
+:root {
+  --paper: #fbfaf7;
+  --ink: #1a1915;
+  --ink-soft: #4c4940;
+  --rule: #ded9ce;
+  --rule-strong: #b9b3a5;
+  --control-line: #8f8779;
+  --accent: #8c3a1b;
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, ui-serif, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, ui-sans-serif, sans-serif;
+
+  /* Type scale: five sizes, 1.2 steps. */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 0.9375rem;
+  --text-lg: 1.125rem;
+  --text-display: clamp(2rem, 4.5vw, 2.5rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--text-md);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p,
+li,
+dd {
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--rule-strong);
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+}
+
+.skip:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+}
+
+/* Layout: a document column beside a sticky rail, like a printed CV. */
+.page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2.25rem, 5vw, 3rem);
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 4.5rem) clamp(1.25rem, 4vw, 2.5rem) clamp(2.5rem, 6vw, 5rem);
+}
+
+@media (min-width: 880px) {
+  .page {
+    grid-template-columns: minmax(0, 20.5rem) minmax(0, 1fr);
+    gap: clamp(2.5rem, 6vw, 5.5rem);
+  }
+
+  .rail {
+    position: sticky;
+    top: clamp(2rem, 6vh, 3.5rem);
+    align-self: start;
+  }
+}
+
+.rail {
+  min-width: 0;
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: var(--text-display);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+}
+
+.role {
+  margin: 0.5rem 0 0;
+  font-size: var(--text-md);
+  color: var(--accent);
+  letter-spacing: 0.01em;
+}
+
+.summary {
+  margin: 1.25rem 0 0;
+  color: var(--ink-soft);
+  font-size: var(--text-md);
+  line-height: 1.65;
+  max-width: 34ch;
+}
+
+.contact {
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.875rem;
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+}
+
+.contact .label {
+  display: block;
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin-top: 2.5rem;
+  font-size: var(--text-sm);
+}
+
+.jump a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.jump a:hover {
+  color: var(--ink);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+@media (min-width: 880px) and (pointer: fine) {
+  .jump {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .jump a {
+    min-height: 38px;
+  }
+}
+
+main {
+  min-width: 0;
+  max-width: 66ch;
+}
+
+section {
+  margin-bottom: clamp(2.5rem, 5vw, 3.75rem);
+}
+
+h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin: 0 0 1.75rem;
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.num {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.entry + .entry {
+  margin-top: 1.75rem;
+}
+
+.entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.125rem 1.25rem;
+}
+
+h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: var(--text-lg);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+}
+
+.dates {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.meta {
+  margin: 0.25rem 0 0;
+  font-size: var(--text-md);
+  color: var(--ink-soft);
+}
+
+.meta + .meta {
+  margin-top: 0.125rem;
+}
+
+.bullets {
+  margin: 0.75rem 0 0;
+  padding-left: 0;
+  list-style: none;
+  color: var(--ink-soft);
+  font-size: var(--text-md);
+}
+
+.bullets > li {
+  position: relative;
+  padding-left: 1.05rem;
+}
+
+.bullets > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 5px;
+  height: 1px;
+  background: var(--rule-strong);
+}
+
+.bullets li + li {
+  margin-top: 0.3rem;
+}
+
+/* Nested project list: the hairline groups the projects under their parent bullet,
+   so the reader sees one action followed by what it covers. */
+.sublist {
+  margin: 0.45rem 0 0.1rem;
+  padding-left: 0.9rem;
+  border-left: 1px solid var(--rule);
+  list-style: none;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.sublist li + li {
+  margin-top: 0;
+}
+
+.link-row {
+  margin: 0.5rem 0 0;
+  font-size: var(--text-md);
+}
+
+.skills {
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.skills div {
+  display: grid;
+  grid-template-columns: minmax(0, 10.5rem) minmax(0, 1fr);
+  gap: 0.25rem 1.5rem;
+  align-items: baseline;
+}
+
+.skills dt {
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+}
+
+.skills dd {
+  margin: 0;
+  font-size: var(--text-md);
+}
+
+@media (max-width: 520px) {
+  .skills div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.125rem;
+  }
+}
+
+.colophon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+}
+
+.colophon p {
+  margin: 0;
+}
+
+.print {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--control-line);
+  border-radius: 2px;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: var(--text-sm);
+  min-height: 44px;
+  padding: 0.5rem 1.125rem;
+  transition: border-color 140ms ease, color 140ms ease;
+}
+
+.print:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.print:active {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .print {
+    transition: none;
+  }
+}
+
+@media print {
+  :root {
+    --paper: #ffffff;
+    --ink: #000000;
+    --ink-soft: #1f1f1f;
+    --rule: #b3b3b3;
+    --rule-strong: #8a8a8a;
+  }
+
+  @page {
+    margin: 15mm 16mm;
+  }
+
+  body {
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+
+  .page {
+    display: block;
+    max-width: none;
+    padding: 0;
+  }
+
+  main {
+    max-width: none;
+  }
+
+  .rail {
+    position: static;
+    margin-bottom: 1.25rem;
+  }
+
+  .summary {
+    max-width: none;
+  }
+
+  .jump,
+  .print,
+  .skip {
+    display: none;
+  }
+
+  .contact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.4rem 1.5rem;
+  }
+
+  section {
+    margin-bottom: 1.25rem;
+  }
+
+  .entry,
+  .skills div,
+  h2 {
+    break-inside: avoid;
+  }
+
+  .entry + .entry {
+    margin-top: 1rem;
+  }
+
+  h2 {
+    margin-bottom: 0.75rem;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  :focus {
+    outline: none;
+  }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="page">
+
+  <aside class="rail">
+    <header class="identity">
+      <h1>Dian Kurniawan</h1>
+      <p class="role">Quality Assurance Engineer</p>
+      <p class="summary">Quality Assurance Engineer with more than 5 years testing web and mobile products. I write test cases from requirements, run UI, API, regression and UAT testing, and build automation in Cypress, Jest and K6. I work closely with product, design, and engineering teams.</p>
+    </header>
+
+    <ul class="contact">
+      <li><span class="label">Email</span> <a href="mailto:dikur.qa@email.com">dikur.qa@email.com</a></li>
+      <li><span class="label">Phone</span> <a href="https://wa.me/+62859106820845">+62 859106820845</a></li>
+      <li><span class="label">GitHub</span> <a href="https://github.com/dikurrrr">github.com/dikurrrr</a></li>
+      <li><span class="label">Linkedin</span> <a href="https://www.linkedin.com/in/dikurr/">dikurrrr</a></li>
+      <li><span class="label">Location</span> Yogyakarta, Indonesia</li>
+    </ul>
+
+    <nav class="jump" aria-label="Sections">
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+    </nav>
+  </aside>
+
+  <main id="main">
+
+    <section aria-labelledby="experience">
+      <h2 id="experience"><span class="num">01</span> Experience</h2>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Software Quality Assurance</h3>
+          <p class="dates">Mar 2025 to present</p>
+        </div>
+        <p class="meta">Greget Kreatif, Yogyakarta, Indonesia</p>
+        <ul class="bullets">
+          <li>Track and report bugs in Trello</li>
+          <li>Write test cases from project requirements</li>
+          <li>UI and API testing for these projects:
+            <ul class="sublist">
+              <li>ERP Yacona Indonesia</li>
+              <li>Ada Orang Baik</li>
+              <li>Digital Student Permission System at SMA Muhi Yogyakarta</li>
+              <li>Nidzom — School and Islamic boarding school management platform</li>
+              <li>Savinix — Business Procurement and Vendor Quote Comparison Platform</li>
+            </ul>
+          </li>
+          <li>Regression and UAT testing</li>
+          <!--<li>Build UI and API automation</li>-->
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Software Quality Assurance</h3>
+          <p class="dates">Oct 2021 to Nov 2024</p>
+        </div>
+        <p class="meta">PT Privy Identitas Digital, Yogyakarta, Indonesia</p>
+        <ul class="bullets">
+          <li>Track and report bugs in JIRA</li>
+          <li>Web application testing, including the PrivySign revamp: test cases, UI testing, and regression</li>
+          <li>UI automation in Cypress, API automation in Jest, and load and stress testing in K6</li>
+          <li>API testing with Postman, plus data checks in phpMyAdmin and phpPgAdmin</li>
+          <li>Regression and UAT testing</li>
+          <li>Worked with PM, QA, FE, BE, and UI/UX teams</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Customer Experience Lead</h3>
+          <p class="dates">Mar 2021 to Oct 2021</p>
+        </div>
+        <p class="meta">Leadershift Helpdesk, Yogyakarta, Indonesia</p>
+        <ul class="bullets">
+          <li>Led the Customer Experience team</li>
+          <li>Produced daily and weekly reports on customer issues</li>
+          <li>Set the Helpdesk work schedule and task division</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Helpdesk Specialist</h3>
+          <p class="dates">Mar 2020 to Mar 2021</p>
+        </div>
+        <p class="meta">Leadershift Helpdesk, Yogyakarta, Indonesia</p>
+        <ul class="bullets">
+          <li>Assisted clients in the Customer Experience division with problems and requests</li>
+        </ul>
+      </article>
+    </section>
+
+    <section aria-labelledby="skills">
+      <h2 id="skills"><span class="num">02</span> Skills</h2>
+      <dl class="skills">
+        <div>
+          <dt>Testing</dt>
+          <dd>Manual, UI, API, regression, UAT</dd>
+        </div>
+        <div>
+          <dt>Automation</dt>
+          <dd>Cypress for UI, Jest for API, K6 for load and stress</dd>
+        </div>
+        <div>
+          <dt>Tools</dt>
+          <dd>Postman, Bruno, JIRA, Trello, phpMyAdmin, phpPgAdmin</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="education">
+      <h2 id="education"><span class="num">03</span> Education</h2>
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Informatics Engineering</h3>
+          <p class="dates">2013 to 2019</p>
+        </div>
+        <p class="meta">Universitas Ahmad Dahlan, Yogyakarta</p>
+        <p class="meta">GPA 3.21</p>
+      </article>
+    </section>
+
+    <footer class="colophon">
+      <p>Last updated November 2026</p>
+      <button type="button" class="print" id="print-cv">Save as PDF</button>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+const printButton = document.getElementById("print-cv");
+
+if (printButton) {
+  printButton.addEventListener("click", () => window.print());
+}
+</script>
+</body>
+</html>

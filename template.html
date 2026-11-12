@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[Your Name] | Curriculum Vitae</title>
+<meta name="description" content="Curriculum vitae of [Your Name], [job title].">
+<style>
+:root {
+  --paper: #fbfaf7;
+  --ink: #1a1915;
+  --ink-soft: #4c4940;
+  --rule: #ded9ce;
+  --rule-strong: #b9b3a5;
+  --control-line: #8f8779;
+  --accent: #8c3a1b;
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, ui-serif, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, ui-sans-serif, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--rule-strong);
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+}
+
+.skip:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+}
+
+/* Layout: a document column beside a sticky rail, like a printed CV. */
+.page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2.25rem, 5vw, 3rem);
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 4.5rem) clamp(1.25rem, 4vw, 2.5rem) clamp(2.5rem, 6vw, 5rem);
+}
+
+@media (min-width: 880px) {
+  .page {
+    grid-template-columns: minmax(0, 20.5rem) minmax(0, 1fr);
+    gap: clamp(2.5rem, 6vw, 5.5rem);
+  }
+
+  .rail {
+    position: sticky;
+    top: clamp(2rem, 6vh, 3.5rem);
+    align-self: start;
+  }
+}
+
+.rail {
+  min-width: 0;
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5.2vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+}
+
+.role {
+  margin: 0.5rem 0 0;
+  font-size: 0.9375rem;
+  color: var(--accent);
+  letter-spacing: 0.01em;
+}
+
+.summary {
+  margin: 1.25rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  max-width: 34ch;
+}
+
+.contact {
+  margin: 2rem 0 0;
+  padding: 1.5rem 0 0;
+  border-top: 1px solid var(--rule);
+  list-style: none;
+  display: grid;
+  gap: 0.875rem;
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+
+.contact .label {
+  display: block;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.875rem;
+}
+
+.jump a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.jump a:hover {
+  color: var(--ink);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+@media (min-width: 880px) and (pointer: fine) {
+  .jump {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .jump a {
+    min-height: 38px;
+  }
+}
+
+main {
+  min-width: 0;
+}
+
+section {
+  margin-bottom: clamp(2.5rem, 5vw, 3.75rem);
+}
+
+h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin: 0 0 1.75rem;
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.num {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.entry + .entry {
+  margin-top: 1.75rem;
+}
+
+.entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.125rem 1.25rem;
+}
+
+h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+}
+
+.dates {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.meta {
+  margin: 0.25rem 0 0;
+  font-size: 0.9375rem;
+  color: var(--ink-soft);
+}
+
+.meta + .meta {
+  margin-top: 0.125rem;
+}
+
+.bullets {
+  margin: 0.75rem 0 0;
+  padding-left: 1.125rem;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
+.bullets li + li {
+  margin-top: 0.3rem;
+}
+
+.bullets ::marker {
+  color: var(--rule-strong);
+}
+
+.link-row {
+  margin: 0.5rem 0 0;
+  font-size: 0.9375rem;
+}
+
+.skills {
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.skills div {
+  display: grid;
+  grid-template-columns: minmax(0, 10.5rem) minmax(0, 1fr);
+  gap: 0.25rem 1.5rem;
+  align-items: baseline;
+}
+
+.skills dt {
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+
+.skills dd {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+@media (max-width: 520px) {
+  .skills div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.125rem;
+  }
+}
+
+.colophon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
+}
+
+.colophon p {
+  margin: 0;
+}
+
+.print {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--control-line);
+  border-radius: 2px;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.8125rem;
+  min-height: 44px;
+  padding: 0.5rem 1.125rem;
+  transition: border-color 140ms ease, color 140ms ease;
+}
+
+.print:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.print:active {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .print {
+    transition: none;
+  }
+}
+
+@media print {
+  :root {
+    --paper: #ffffff;
+    --ink: #000000;
+    --ink-soft: #1f1f1f;
+    --rule: #b3b3b3;
+    --rule-strong: #8a8a8a;
+  }
+
+  @page {
+    margin: 15mm 16mm;
+  }
+
+  body {
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+
+  .page {
+    display: block;
+    max-width: none;
+    padding: 0;
+  }
+
+  .rail {
+    position: static;
+    margin-bottom: 1.75rem;
+  }
+
+  .summary {
+    max-width: none;
+  }
+
+  .jump,
+  .print,
+  .skip {
+    display: none;
+  }
+
+  .contact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem 1.5rem;
+  }
+
+  section {
+    margin-bottom: 1.5rem;
+  }
+
+  .entry,
+  .skills div,
+  h2 {
+    break-inside: avoid;
+  }
+
+  h2 {
+    margin-bottom: 0.875rem;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="page">
+
+  <aside class="rail">
+    <header class="identity">
+      <h1>[Your Name]</h1>
+      <p class="role">[Job title]</p>
+      <p class="summary">[Two sentences on what you do and the role you are looking for. Name the work, the stack, and the kind of team you want to join.]</p>
+    </header>
+
+    <ul class="contact">
+      <li><span class="label">Email</span> [your@email.com]</li>
+      <li><span class="label">GitHub</span> <a href="https://github.com/dikurrrr">github.com/dikurrrr</a></li>
+      <li><span class="label">LinkedIn</span> [linkedin.com/in/handle]</li>
+      <li><span class="label">Location</span> [City, Country]</li>
+    </ul>
+    <!-- When you fill in email and LinkedIn, wrap each value in a real link:
+         <a href="mailto:you@example.com">you@example.com</a> -->
+
+    <nav class="jump" aria-label="Sections">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+    </nav>
+  </aside>
+
+  <main id="main">
+
+    <section aria-labelledby="experience">
+      <h2 id="experience"><span class="num">01</span> Experience</h2>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>[Job title]</h3>
+          <p class="dates">[Mon YYYY] to [Mon YYYY]</p>
+        </div>
+        <p class="meta">[Company], [City]</p>
+        <ul class="bullets">
+          <li>[What you owned, in one line. Start with a verb.]</li>
+          <li>[One result, with the number that proves it. Replace this line or delete it.]</li>
+          <li>[The part of the stack or process you were responsible for.]</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>[Previous job title]</h3>
+          <p class="dates">[Mon YYYY] to [Mon YYYY]</p>
+        </div>
+        <p class="meta">[Company], [City]</p>
+        <ul class="bullets">
+          <li>[What you owned, in one line.]</li>
+          <li>[Something you improved, and how you measured it.]</li>
+        </ul>
+      </article>
+    </section>
+
+    <section aria-labelledby="projects">
+      <h2 id="projects"><span class="num">02</span> Projects</h2>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>[Project name]</h3>
+          <p class="dates">[YYYY]</p>
+        </div>
+        <p class="meta">[One line: what it does and who uses it.]</p>
+        <p class="meta">[Stack]</p>
+        <p class="link-row">[Repo or live site]</p>
+        <!-- When the project has a public URL, replace the line above with:
+             <p class="link-row"><a href="https://...">Repo or live site</a></p> -->
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>[Project name]</h3>
+          <p class="dates">[YYYY]</p>
+        </div>
+        <p class="meta">[One line: what it does and who uses it.]</p>
+        <p class="meta">[Stack]</p>
+      </article>
+    </section>
+
+    <section aria-labelledby="skills">
+      <h2 id="skills"><span class="num">03</span> Skills</h2>
+      <dl class="skills">
+        <div>
+          <dt>Languages</dt>
+          <dd>[Language], [Language], [Language]</dd>
+        </div>
+        <div>
+          <dt>Frameworks and tools</dt>
+          <dd>[Tool], [Tool], [Tool], [Tool]</dd>
+        </div>
+        <div>
+          <dt>Practices</dt>
+          <dd>[Practice], [Practice], [Practice]</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="education">
+      <h2 id="education"><span class="num">04</span> Education</h2>
+      <article class="entry">
+        <div class="entry-head">
+          <h3>[Degree, field of study]</h3>
+          <p class="dates">[YYYY] to [YYYY]</p>
+        </div>
+        <p class="meta">[Institution], [City]</p>
+      </article>
+    </section>
+
+    <footer class="colophon">
+      <p>Last updated [Month YYYY]</p>
+      <button type="button" class="print" id="print-cv">Save as PDF</button>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+const printButton = document.getElementById("print-cv");
+
+if (printButton) {
+  printButton.addEventListener("click", () => window.print());
+}
+</script>
+</body>
+</html>
