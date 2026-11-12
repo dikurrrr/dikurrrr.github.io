@@ -46,37 +46,46 @@ karena tidak ada fetch atau modul.
 
 ## Deploy ke GitHub Pages
 
-### Opsi A: URL bersih `https://dikurrrr.github.io`
+Situs sudah live di **https://dikurrrr.github.io/**
 
-Nama repo harus persis sama dengan username.
+| Item | Nilai |
+| --- | --- |
+| Repo | `dikurrrr/dikurrrr.github.io` (public) |
+| Branch | `main` |
+| Folder | `/ (root)` |
+| HTTPS | enforced |
 
-```bash
-git init
-git add .
-git commit -m "Add CV site"
-git branch -M main
-git remote add origin https://github.com/dikurrrr/dikurrrr.github.io.git
-git push -u origin main
-```
+Nama repo sengaja persis sama dengan username. Itu syarat URL bersih tanpa subfolder:
+`https://dikurrrr.github.io/`, bukan `https://dikurrrr.github.io/nama-repo/`.
+Kalau repo di-rename, URL-nya ikut berubah dan setting Pages tetap terbawa.
 
-Lalu di repo: **Settings > Pages > Build and deployment > Source: Deploy from a branch**,
-pilih branch `main`, folder `/ (root)`, Save. Tunggu 1 sampai 2 menit.
-
-### Opsi B: URL `https://dikurrrr.github.io/cv`
-
-Nama repo bebas (`cv`, `profile`, dan seterusnya). Semua path di halaman ini relatif,
-jadi tetap jalan di subfolder.
+### Update isi
 
 ```bash
-git init
 git add .
-git commit -m "Add CV site"
-git branch -M main
-git remote add origin https://github.com/dikurrrr/cv.git
-git push -u origin main
+git commit -m "Update CV"
+git push
 ```
 
-Pengaturan Pages-nya sama seperti Opsi A.
+Pages rebuild otomatis, sekitar 1 menit. Cek status di tab **Actions**, atau:
+
+```bash
+gh api repos/dikurrrr/dikurrrr.github.io/pages/builds/latest --jq .status
+```
+
+### Kalau perlu setup ulang dari nol
+
+Hanya untuk repo baru. Repo yang sekarang sudah dikonfigurasi, jadi langkah ini
+tidak perlu diulang.
+
+1. Buat repo public bernama `dikurrrr.github.io`. Pages gratis tidak jalan di repo private.
+2. Push `main` ke repo itu.
+3. **Settings > Pages > Build and deployment > Source: Deploy from a branch**,
+   branch `main`, folder `/ (root)`, Save.
+4. Tunggu 1 sampai 2 menit, lalu buka `https://dikurrrr.github.io/`.
+
+Semua path di halaman ini relatif, jadi situs tetap jalan kalau suatu saat dipindah
+ke repo lain dengan URL ber-subfolder.
 
 ## Catatan
 
