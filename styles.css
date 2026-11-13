@@ -75,14 +75,14 @@ a:hover {
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--ink);
   outline-offset: 3px;
   border-radius: 1px;
 }
 
 ::selection {
   background: var(--accent);
-  color: var(--paper);
+  color: var(--ink);
 }
 
 .skip {
@@ -326,11 +326,6 @@ h3 {
   margin-top: 0;
 }
 
-.link-row {
-  margin: 0.5rem 0 0;
-  font-size: var(--text-md);
-}
-
 .skills {
   margin: 0;
   display: grid;
@@ -418,7 +413,7 @@ h3 {
     --rule-strong: #8a8a8a;
 
     /* rem resolves against html, so print sizes are set here in pt.
-       --accent stays terracotta on purpose. */
+       --accent stays yellow on purpose. */
     --text-xs: 7.5pt;
     --text-sm: 8.5pt;
     --text-md: 9.5pt;
