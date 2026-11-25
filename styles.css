@@ -508,7 +508,8 @@ h3 {
 
   .jump,
   .print,
-  .skip {
+  .skip,
+  .stack {
     display: none;
   }
 
